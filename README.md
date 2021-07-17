@@ -1,0 +1,1 @@
+# TestMode [![Build status](https://ci.appveyor.com/api/projects/status/vwtapqbbb4jcpxhl?svg=true)](https://ci.appveyor.com/project/Elena-63/testmode)
