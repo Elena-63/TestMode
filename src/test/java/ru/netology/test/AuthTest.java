@@ -1,6 +1,5 @@
 package ru.netology.test;
 
-import lombok.var;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +15,7 @@ public class AuthTest {
         open("http://localhost:9999/");
     }
 
-    @Test
-        //TODO Тест на наличие пользователя
+    @Test //Тест на наличие пользователя
     void shouldCheckThePresenceOfTheUser() {
         var validUser = generateUser("active");
         $("[data-test-id=login] input").setValue(validUser.getLogin());
@@ -26,8 +24,7 @@ public class AuthTest {
         $(withText("Личный кабинет")).shouldBe(visible);
     }
 
-    @Test
-        //TODO Тест статус пользователя
+    @Test //Тест статус пользователя
     void shouldCheckTheUserStatus() {
         var blockedUser = generateUser("blocked");
         $("[data-test-id=login] input").setValue(blockedUser.getLogin());
@@ -36,8 +33,7 @@ public class AuthTest {
         $(withText("Пользователь заблокирован")).shouldBe(visible);
     }
 
-    @Test
-        //TODO Тест невалидный логин
+    @Test // Тест невалидный логин
     void shouldCheckTheInvalidUsername() {
         var wrongLoginUser = generateWrongLoginUser("active");
         $("[data-test-id=login] input").setValue(wrongLoginUser.getLogin());
@@ -46,8 +42,7 @@ public class AuthTest {
         $(withText("Неверно указан логин или пароль")).shouldBe(visible);
     }
 
-    @Test
-        //TODO Тест невалидный пароль
+    @Test// Тест невалидный пароль
     void shouldCheckTheInvalidPassword() {
         var wrongPasswordUser = generateWrongPasswordUser("active");
         $("[data-test-id=login] input").setValue(wrongPasswordUser.getLogin());
@@ -56,8 +51,7 @@ public class AuthTest {
         $(withText("Неверно указан логин или пароль")).shouldBe(visible);
     }
 
-    @Test
-        //TODO Тест авторизации с пустыми полями
+    @Test // Тест авторизации с пустыми полями
     void shouldCheckWithEmptyFields() {
         $("button[data-test-id=action-login]").click();
         $(withText("Поле обязательно для заполнения")).shouldBe(visible);
